@@ -1,0 +1,15 @@
+{
+  "name": "@climatereferendum/webhook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "@octokit/webhooks": "^7.6.4",
+    "esm": "^3.2.25"
+  }
+}

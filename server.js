@@ -9,7 +9,7 @@ const webhooks = new Webhooks({
 
 webhooks.on("*", ({ id, name, payload }) => {
   console.log(name, "even received")
-  exec('npm install -f',
+  exec('rm -rf node_modules && npm install -f',
        { cwd: config.fsPath },
        (error, stdout, stderr) => {
          if (error) {

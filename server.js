@@ -12,14 +12,21 @@ webhooks.on("*", ({ id, name, payload }) => {
   exec('npm install -f',
        { cwd: config.fsPath },
        (error, stdout, stderr) => {
+         if (error) {
+          console.error(error)
+          console.error(stderr)
+          return
+         }
          console.log(stdout)
-         console.error(stderr)
+         exec(`systemctl restart ${config.serviceName}`,
+             (error, stdout, stderr) => {
+               console.log(stdout)
+               console.error(stderr)
+               if (error) {
+                console.error(error)
+               }
+         })
 
-  })
-  exec(`systemctl restart ${config.serviceName}`,
-       (error, stdout, stderr) => {
-         console.log(stdout)
-         console.error(stderr)
   })
 })
 
